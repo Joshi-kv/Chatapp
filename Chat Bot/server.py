@@ -12,11 +12,12 @@ Port=5000
 server.bind((Host_Name,Port))
 server.listen(4)
 
-#establishing connection to client
+#accepting client ip address
+client,address=server.accept()
 while True:
-    #accepting client ip address
-    client,address=server.accept()
-    
     #sendiing message to client
-    client.send(bytes("Hello iam server",'utf-8'))
-    print('Client connected successfully to address',address)
+    message=input('Server : ')
+    client.send(bytes(message,'utf-8'))
+    #receiving message from client.
+    message_from_client=client.recv(100)
+    print("Client : ",message_from_client.decode('utf-8'))
