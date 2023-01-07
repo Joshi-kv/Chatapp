@@ -7,14 +7,14 @@ from tkinter import *
 def send(messagebox,entry):
     #sendiing message to client
     message=entry.get()
-    messagebox.insert('end','Server : '+message)
+    messagebox.insert('end','Client : '+message)
     entry.delete(0,END)  
     server.send(bytes(message,'utf-8'))
     
 #function for receiving message
 def receive(messagebox):
      message_from_server=server.recv(100)
-     messagebox.insert('end','Client : '+message_from_server.decode('utf-8'))
+     messagebox.insert('end','Server : '+message_from_server.decode('utf-8'))
          
 root=Tk()
 root.title('Client')
