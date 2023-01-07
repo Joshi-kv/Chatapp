@@ -10,3 +10,7 @@ Port=5000
 
 #connecting client to server
 server.connect((Host_Name,Port))
+
+#receiving message from server
+message=server.recv(100)
+print(message.decode('utf-8'))

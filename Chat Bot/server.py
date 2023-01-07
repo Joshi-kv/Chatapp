@@ -16,4 +16,7 @@ server.listen(4)
 while True:
     #accepting client ip address
     client,address=server.accept()
+    
+    #sendiing message to client
+    client.send(bytes("Hello iam server",'utf-8'))
     print('Client connected successfully to address',address)
